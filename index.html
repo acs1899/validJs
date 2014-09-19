@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="static/script/jquery_min_1.9.js"></script>
+<link rel="stylesheet" type="text/css" href="static/css/valid_default.css" />
+</head>
+<body>
+<div class="content">
+	<form valid="true">
+		<div class="miw"><label>用户名：</label><input type="text" checktype="username" placeholde="用户名" nullmsg="请输入用户名" errmsg="用户名由4到16位字母、数字或下换线组成,只能以字母和下划线开头" /></div>
+		<div class="miw"><label>密码：</label><input type="password" name="password1" checktype="psw" placeholde="密码" nullmsg="请输入密码" errmsg="密码有6至18个字符组成" /></div>
+		<div class="miw"><label>重复密码：</label><input type="password" checktype="psw" placeholde="重复密码" recheck="password1" nullmsg="请输入密码" errmsg="两次密码不一致" /></div>
+		<div class="miw"><label>性别：</label>
+			<div style="width:150px;display:inline;display:inline-block;zoom:1">
+				<input type="radio" checktype="null" name="gender" nullmsg="请选择性别" errmsg="请选择性别" value="male" />男
+				<input type="radio" name="gender" value="female"/>女
+			</div>
+		</div>
+		<div class="miw"><label>爱好：</label>
+			<div style="width:150px;display:inline;display:inline-block;zoom:1">
+				<input type="checkbox" name="chek1" checkname="chek" checktype="null" nullmsg="请选择爱好" errmsg="请选择爱好" value="footerball" />足球
+				<input type="checkbox" name="chek2" checkname="chek" checktype="null" nullmsg="请选择爱好" errmsg="请选择爱好" value="basketball"/>篮球
+			</div>
+		</div>
+		<div class="miw"><label style="vertical-align:top;">年龄：</label>
+		<select style="width:150px" checktype="null" nullmsg="请选择" errmsg="">
+			<option value="">请选择</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+		</select>
+		</div>
+		<div class="miw"><label style="vertical-align:top;">留言：</label><textarea checktype="null" placeholde="请输入留言" nullmsg="000" errmsg=""></textarea></div>
+		<div class="miw"><label style="vertical-align:top;"></label><input type="submit" class="sub" value="提交"></div>
+	</form>
+
+</div>
+<script type="text/javascript" src="static/script/valid.js"></script>
+<script type="text/javascript" src="static/script/sub.js"></script>
+</body>
+</html>
+
+/****验证表单***/
+在需要验证的表单控件内添加'checktype'特性，提供的可选值:
+'username'<===用户名;
+'mail'<===邮件;
+'psw'<===密码;
+'phone'<===手机号;
+'id'<===身份证;
+'null'<===只校验是否为空
+'/^d+$/g'<===自定义正则表达式
+
+（注：没有'checktype'特性,则不进行校验;）
+'placeholde':在'input'输入框或'textarea'标签内添加来设置默认提示信息;
+'nullmsg':输入为空或者没有选择时的提示信息;
+'errmsg':输入错误时的提示信息;
+'recheck':指定需要比较的另一个表单元素（常用于密码重复）.取值为另一个表单元素的'name'值;
+'checkname':将多个'多选框'绑定为同一验证
+（注：单选框和多选框必须设置'name',否则验证可能无效）

@@ -1,0 +1,13 @@
+@charset 'utf-8';
+*{margin:0;padding:0;}
+body{font:12px/1.5em 'Arial';}
+input,textarea,select{border:none;border: 1px solid #a5aeb6;padding: 4px 2px;outline:none}
+.content{width:960px;margin:100px auto;}
+.miw{margin-top:20px}
+label{display:inline-block;width:120px;zoom:1;}
+/*tip*/
+.tip_info{margin-left: 8px;border: 1px solid #ccc;padding: 8px 10px;color: #666;position:absolute;display: none;line-height: 20px;box-shadow: 1px 5px 10px #ccc;border-radius: 3px;background-color: #fff;}
+.dec{display: none;width: 8px;height: 17px;overflow: hidden;position: absolute;left: -8px;top: 9px;}
+.dec span {font-family: simsun;font-size: 16px;height: 19px;left: 0;line-height: 21px;position: absolute;text-decoration: none;top: 0;width: 17px;}
+.dec .dec1 {color: #ccc;}
+.dec .dec2 {color: #fff;left: 1px;}
