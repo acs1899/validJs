@@ -24,7 +24,6 @@
 **
 */
 
-
 (function(){
     $('div[valid=true],form[valid=true]').each(function(){
         var inputs=$('input,textarea,select',this),topmax=0;
@@ -116,7 +115,7 @@
                         if(this.err){dele.call(this)}
                         this.err=showTip($this,nul);
                         pass=0;
-                    }else if(!this.value.match(/^1(?:[38]\d|4[57]|5[01256789])\d{8}$/)){
+                    }else if(!this.value.match(/^1(?:[34578]\d|4[57]|5[01256789])\d{8}$/)){
                         if(this.err){dele.call(this)}
                         this.err=showTip($this,err);
                         pass=0;
@@ -163,7 +162,7 @@
                         }
                     }break;
                 case 'null':
-                    if(this.value==''){
+                    if(this.value=='' || !(/[^\s]/.test(this.value))){
                         if(this.err){dele.call(this)}
                         this.err=showTip($this,nul);
                         pass=0;
@@ -230,8 +229,8 @@
             return {'left':left,'top':top}
         }
         inputs.each(function(){
-            var $this=$(this),val=$(this).val();
-            if($this.attr('placeholde')){
+            var $this=$(this),val=$(this).val(),place=$this.attr('placeholde');
+            if(place){
                 /*默认提示*/
                 var ndiv=$('<div style="position:absolute;color:#afafaf;top:0;left:0;"></div>');
                 $('body').append(ndiv);
@@ -243,7 +242,8 @@
                     if(this.tagName.toLowerCase()=='textarea'){
                         ndiv.html($this.attr('placeholde'));
                         ndiv.css({'left':$this.offset().left+parseInt($this.css('padding-left'))+4+'px','top':$this.offset().top+parseInt($this.css('padding-top'))+'px'});
-                    }    
+                    }
+                    
                 }
                 abs.call(this);
                 
@@ -260,7 +260,7 @@
                 });
                 
                 function hidePlace(){$this.val()!=''&&(ndiv.hide())}
-                window.sIntervalCheckInputAlways = setInterval(hidePlace,500);
+                this.sIntervalCheckInputAlways = setInterval(hidePlace,500);
                 $(window).resize(function(){abs.call($this[0])});
             }
             
@@ -278,4 +278,5 @@
         });
     });
 })();
+
 
